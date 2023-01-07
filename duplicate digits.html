@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>duplicate digits</title>
+    <style>
+        * {
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DUPLICATE DIGITS</h1>
+    <script>
+
+        let limit = 500;
+        let num = parseInt(prompt('Enter the number '));
+        let getnum = String(num).split('').map(Number);
+
+        if (num <= limit) {
+
+            let Find = getnum.filter((a, b) => {
+                return getnum.indexOf(a) !== b
+            })
+
+            if (Find.length > 0) {
+                let add = getnum.reduce((a, b) => a + b)
+                if (add < 5) {
+
+                    document.writeln(num, "==> The number has repeating   ", Find, " 's ", "and the sum of the digits ==> ", getnum[0], "+", getnum[1], (getnum[2] >= 0) ? (" + " + getnum[2]) : (''), " = ", add, '  less than 5');
+
+                }
+                else if (add == 5) {
+
+                    document.writeln(num, "==> The number has repeating   ", Find, " 's ", "and the sum of the digits ==> ", getnum[0], "+", getnum[1], (getnum[2] >= 0) ? (" + " + getnum[2]) : (''), " = ", add, '  equal 5');
+                }
+                else {
+
+                    document.writeln(num, "==> The number has repeating   ", Find, " 's ", "and the sum of the digits ==> ", getnum[0], "+", getnum[1], (getnum[2] > 0) ? (" + " + getnum[2]) : (''), " = ", add, '   More than 5');
+                }
+            }
+            else document.writeln('Enter duplicate digits value');
+        } else document.writeln("Please enter value less than 500");
+
+    </script>
+</body>
+
+</html>
